@@ -1,0 +1,13 @@
+<h1>Movies</h1>
+<% if @movies.present? %>
+<ul>
+	<% @movies.each do |movie| %>
+		<li>
+			<%= link_to movie.name, movie_path(movie.id) %>
+		</li>
+	<% end %>
+</ul>
+<% else %>
+There are no movies yet.
+<% end %>
+<%= link_to 'Add new movie', new_movie_path%>

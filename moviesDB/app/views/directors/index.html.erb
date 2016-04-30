@@ -1,0 +1,13 @@
+<h1>Directors</h1>
+<% if @directors.present? %>
+<ul>
+	<% @directors.each do |director| %>
+		<li>
+			<%= link_to director.name, director_path(director.id) %>
+		</li>
+	<% end %>
+</ul>
+<% else %>
+There are no directors yet.
+<% end %>
+<%= link_to 'Add new director', new_director_path %>

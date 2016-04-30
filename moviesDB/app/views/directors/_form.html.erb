@@ -1,0 +1,24 @@
+<%= form_for @director do |f| %>
+	<%= f.label :name %>
+	<br/>
+	<%= f.text_field :name%>
+	<br/>
+	<%= f.label :description %>
+	<br/>
+	<%= f.text_field :description%>
+	<br/>
+	<%= f.label :image_url %>
+	<br/>
+	<%= f.text_field :image_url%>
+	<br/>
+	<br/>
+	<%= f.label :birthdate %>
+	<br/>
+	<%= f.date_select :birthdate, :order => [:day, :month, :year],:start_year => 1890, :end_year => Date.current.year %>
+	<br/>
+	<%= f.label :birthplace %>
+	<br/>
+	<%= f.text_field :birthplace %>
+	<br/>
+	<%= f.submit %>
+<% end %>

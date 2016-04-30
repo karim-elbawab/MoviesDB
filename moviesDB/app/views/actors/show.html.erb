@@ -1,0 +1,20 @@
+<h1> <%= @actor.name %></h1>
+<dl>
+ 	<dt><strong> Actor Image </strong></dt>
+ 	<dd> <%= image_tag @actor.image_url.to_s, width: 200 %> </dd> 
+</dl>
+<dl>
+	<dt><strong>Description:</strong></dt>
+	<dd><%= @actor.description %></dd>	
+</dl>
+<dl>
+	<dt><strong>Birthdate:</strong></dt>
+	<dd><%= Date.strptime(@actor.birthdate.to_s , "%Y-%m-%d").strftime("%d/%m/%Y") %></dd>
+</dl>
+<dl>
+	<dt><strong>Birthplace:</strong></dt>
+	<dd><%= @actor.birthplace %></dd>	
+</dl>
+<%= link_to 'Edit', edit_actor_path(@actor) %> |
+<%= link_to 'Delete', actor_path(@actor), method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back to list of actors', actors_path %>

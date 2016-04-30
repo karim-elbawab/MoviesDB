@@ -1,0 +1,26 @@
+<%= form_for @movie do |f| %>
+	<%= f.label :name %>
+	<br/>
+	<%= f.text_field :name%>
+	<br/>
+	<%= f.label :description %>
+	<br/>
+	<%= f.text_field :description%>
+	<br/>
+	<%= f.label :image_url %>
+	<br/>
+	<%= f.text_field :image_url%>
+	<br/>
+	<br/>
+	<%= f.label :release_date %>
+	<br/>
+	<%= f.date_select :release_date, :order => [:day, :month, :year],:start_year => 1890, :end_year => Date.current.year %>
+	<br/>
+	<br/>
+	<%= f.label :director %>
+	<br/>
+	<%= f.select :director_name, Director.pluck(:name) %>
+	<br/>
+	<br/>
+	<%= f.submit %>
+<% end %>

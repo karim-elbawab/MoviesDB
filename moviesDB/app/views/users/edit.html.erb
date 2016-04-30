@@ -1,0 +1,10 @@
+<h1>Update</h1>
+<%= form_for @user do |f| %>
+    <%= f.error_messages %>
+	<%= f.label :name %>
+	<br/>
+	<%= f.text_field :name%>
+	<br/>
+	<%= f.submit 'Update' %>
+
+<% end %>

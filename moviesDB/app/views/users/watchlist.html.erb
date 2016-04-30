@@ -1,0 +1,16 @@
+<h1>My watchlist</h1>
+<% if @user.movies.present? %>
+	<% @user.movies.each do |movie| %>
+		<h2> <%= link_to movie.name, movie_path(movie.id) %> </h2>
+		<dl>
+ 			<dt><strong> Movie Poster </strong></dt>
+ 			
+ 			<dd> <%= image_tag movie.image_url.to_s, width: 200 %> </dd> 
+		</dl>
+		<%= link_to 'Remove movie', watchlist_path(Watchlist.find_by(movie_id: movie, user_id: current_user.id)), method: :delete, data: { confirm: 'Are you sure?' } %>
+		<hr>
+	<% end %>
+<% else %>
+	You didn't add any movie to your watchlist yet.
+<% end %>
+<%= link_to 'Back to home', root_path %>	

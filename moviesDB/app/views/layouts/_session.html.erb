@@ -1,0 +1,23 @@
+<% if current_user? %>
+	Welcome,
+	<%= link_to current_user.name, current_user %>
+	&bull;
+	<%= link_to 'Logout', session_path(current_user), method: :delete %>
+	<p><%= link_to 'Update profile', edit_user_path(current_user) %></p>
+	<p><%= link_to 'My watchlist', watchlist_user_path(current_user) %></p>
+<% else %>	
+	<%= form_for :session, url: sessions_path, html: { style: 'display: inline-block;'} do |f| %>
+		<%= f.label :email%>
+		<%= f.email_field :email %>
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+		<%= f.submit "Login" %>
+	<% end %>
+	or
+	<%= link_to 'Register', new_user_path %>
+	<br/>
+<% end %>
+<p><%= link_to 'Home', root_path %></p>
+<p><%= link_to 'Show movies', movies_path  %></p>
+<p><%= link_to 'Show actors', actors_path %></p>
+<p><%= link_to 'Show directors', directors_path %></p>		

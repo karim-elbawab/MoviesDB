@@ -1,0 +1,13 @@
+<h1>Actors</h1>
+<% if @actors.present? %>
+<ul>
+	<% @actors.each do |actor| %>
+		<li>
+			<%= link_to actor.name, actor_path(actor.id) %>
+		</li>
+	<% end %>
+</ul>
+<% else %>
+There are no actors yet.
+<% end %>
+<%= link_to 'Add new actor', new_actor_path %>

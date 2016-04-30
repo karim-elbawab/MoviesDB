@@ -1,0 +1,20 @@
+<h1> <%= @director.name %></h1>
+<dl>
+ 	<dt><strong> Director Image </strong></dt>
+ 	<dd> <%= image_tag @director.image_url.to_s, width: 200 %> </dd> 
+</dl>
+<dl>
+	<dt><strong>Description:</strong></dt>
+	<dd><%= @director.description %></dd>	
+</dl>
+<dl>
+	<dt><strong>Birthdate:</strong></dt>
+	<dd><%= Date.strptime(@director.birthdate.to_s , "%Y-%m-%d").strftime("%d/%m/%Y") %></dd>
+</dl>
+<dl>
+	<dt><strong>Birthplace:</strong></dt>
+	<dd><%= @director.birthplace %></dd>	
+</dl>
+<%= link_to 'Edit', edit_director_path(@director) %> |
+<%= link_to 'Delete', director_path(@director), method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back to list of directors', directors_path %>
